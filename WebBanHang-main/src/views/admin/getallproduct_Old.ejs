@@ -1,0 +1,71 @@
+<% extend("../mainadmin.ejs") %>
+
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">TẤT CẢ SẢN PHẨM TRONG SHOP</h3>
+            </div>
+
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>STT</th>
+                    <th>TÊN SẢN PHẨM</th>
+                    <th>GIÁ SẢN PHẨM</th>
+                    <th>LINK ẢNH</th>
+                    <th>XEM THÔNG TIN</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% if(alldataproduct.length!=0){ var i=1; alldataproduct.forEach(function(data){ %>
+                    <tr>
+                      <td>
+                        <%=i%>
+                      </td>
+                      <td>
+                        <%=data.name %>
+                      </td>
+
+                      <td>
+                        <%=data.price %>
+                      </td>
+                      <td>
+                        <%=data.image_link %>
+                      </td>
+            
+                      <td>
+                        <a href="/admin/inforproduct?id=<%=data.id%>" class="edit" title="Edit" data-toggle="tooltip"><i
+                            class="material-icons"></i>xem thông tin</a>
+
+                      </td>
+
+
+                    </tr>
+                    <% i++; }) %>
+                      <% } else{ %>
+                        <tr>
+                          <td colspan="8">No Data Found</td>
+                        </tr>
+                        <% } %>
+
+                </tbody>
+                </tbody>
+
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>

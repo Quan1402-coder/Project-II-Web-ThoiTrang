@@ -1,0 +1,56 @@
+<% extend("../mainadmin.ejs") %>
+
+  <section class="content">
+    <div class="container-fluid ">
+      <div class="row row1">
+
+        <div class="col-6 chart trangchuchart">
+          <p1 class="textvbd"> THỐNG KÊ SẢN PHẨM</p1>
+          <canvas id="myChart" width="300" height="200"></canvas>
+        </div>
+        <div class="col-6 chart trangchuchart">
+          <p1 class="textvbd">THỐNG KẾ ĐƠN HÀNG</p1>
+          <canvas id="myChartf" width="300" height="200"></canvas>
+        </div>
+
+  </section>
+  <script>
+    
+
+var vbDeChuaDuyet = 100;
+var vbDenDaDuyet = 50;
+
+let myDoughnutChart = document.getElementById("myChart").getContext('2d');
+
+let chart1 = new Chart(myDoughnutChart, {
+    type: 'doughnut',
+    data: {
+        labels: ['Tổng Số Sản Phẩm', 'Tổng Sô Sẩn Phẩm Đã Bán'],
+        datasets: [ {
+            data: [vbDenDaDuyet, vbDeChuaDuyet],
+            backgroundColor: ['#49A9EA', '#36CAAB']
+        }]
+    },
+    // options: {
+    //     title: {
+    //         text: "VĂN BẢN ĐẾN",
+    //         display: true
+    //     }
+    // }
+});
+let myDoughnutChart2 = document.getElementById("myChartf").getContext('2d');
+
+var vbdChuPheDuyet=100;
+var vbddaPheDuyet=50;
+let chart12 = new Chart(myDoughnutChart2, {
+    type: 'doughnut',
+    data: {
+        labels: ['Tổng Số Đơn Hàng', 'Tổng Số ĐƠn Hàng Đã Giao'],
+        datasets: [ {
+            data: [vbddaPheDuyet, vbdChuPheDuyet],
+            backgroundColor: ['#49A9EA', '#36CAAB']
+        }]
+    },
+});
+
+  </script>

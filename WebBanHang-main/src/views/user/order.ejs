@@ -1,0 +1,88 @@
+<% extend("../main.ejs") %>
+
+
+
+    <script>
+        var addProjectOK = "<%= meesstransition%>";
+        if (addProjectOK.length != 0) {
+            $(document).ready(function () {
+                $("#myMessage").modal('show');
+            });
+        }
+    </script>
+
+    <div class="product-easy">
+
+        <div class="container">
+
+            <form class="form-1" action="/order" method="POST">
+                <% if (meesstransition.length> 0) { %>
+                    <p1 id="messagesuccesorder" class="infor-client1">
+                        <%=meesstransition%>
+                    </p1>
+                    <% } %>
+
+                        <div class="infor-client">
+                            <p1 class="infor-client1"> THÔNG TIN KHÁCH HÀNG</p1>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Họ và tên*</label>
+                            <input class="form-control" name="user_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Email</label>
+                            <input class="form-control" name="user_email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Số điện thoại*</label>
+                            <input class="form-control" name="user_phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Địa chỉ*</label>
+                            <input class="form-control" name="user_address">
+                        </div>
+                        <!-- <div class="form-group">
+                    <label for="exampleInputPassword1">Phương thức thanh toán</label>
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">trả bằng tiền mặt</a></li>
+                          <li><a href="#">Another action</a></li>
+                          <li><a href="#">Something else here</a></li>
+                         
+                        </ul>
+                      </div>
+                </div>
+                -->
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Bạn không phải là người máy</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div id="myMessage" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">THÔNG BÁO</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <%= meesstransition %>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                    <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
